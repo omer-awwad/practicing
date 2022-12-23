@@ -1,2 +1,2 @@
 ## practicing
-you have alot of dreams, you must been asleep for to long
+`you have alot of dreams, you must been asleep for too long.`

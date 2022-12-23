@@ -1,6 +1,8 @@
-/*********************************************
+/**************************************************************************************************************
+ * 
  * https://leetcode.com/problems/binary-search/description/?envType=study-plan&id=algorithm-i
-**********************************************/
+ * 
+****************************************************************************************************************/
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -30,3 +32,35 @@ public:
         
     }
 };
+
+/**************************************************************************************************************
+ * 
+ * https://leetcode.com/problems/first-bad-version/description/ 
+ * 
+ * Beats 100%
+ * 
+****************************************************************************************************************/
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        unsigned int output , max = n  , min = 1 ;
+        output = ( max + min ) / 2 ;
+        // BST
+        while(output > min && output < max && !isBadVersion(min) && isBadVersion(max) ){
+            if(isBadVersion(output)) max = output ;
+            else min = output ;
+            output = ( min + max ) / 2 ;
+        } 
+
+
+        output++;
+       
+        if(isBadVersion(min)) output = min ;
+
+        return output;
+    }
+};
+
